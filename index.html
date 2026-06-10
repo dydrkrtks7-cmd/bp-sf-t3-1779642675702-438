@@ -1,213 +1,562 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>주식투자 리서치 및 기술 인프라 저널</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream-bg: #FCFBF7;
-      --charcoal-fg: #1E1B18;
-      --gold-accent: #b8976f;
-      --hairline-color: #e5e2db;
-      --serif-font: 'Nanum Myeongjo', serif;
-      --sans-font: 'Outfit', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="organic-stripe">
+    <meta name="bpaas-design-theme" content="kr-organic-stripe">
+    <title>강남 셔츠룸 추천 | 마포 주식 투자자 모임</title>
+    <meta name="description" content="마포에서 만나는 강남 셔츠룸 투자 꿀팁! 주식 투자자들이 추천하는 강남 셔츠룸 정보, 생생한 후기, 가격대까지 한눈에 확인하세요. 전화 010-6279-0862">
+    <meta name="keywords" content="강남 셔츠룸, 마포 주식, 주식투자, 강남 셔츠룸 추천, 셔츠룸 후기, 투자 모임">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sf-t3-1779642675702-438.vercel.app">
+
+    <!-- OG 메타 -->
+    <meta property="og:title" content="강남 셔츠룸 추천 | 마포 주식 투자자 모임">
+    <meta property="og:description" content="마포에서 만나는 강남 셔츠룸 투자 꿀팁! 생생한 후기와 가격대 정보">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sf-t3-1779642675702-438.vercel.app">
+    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect fill='%23fcf8f2' width='1200' height='630'/><text x='50%25' y='50%25' text-anchor='middle' font-family='system-ui' font-size='48' fill='%232e2522'>강남 셔츠룸</text></svg>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="강남 셔츠룸 추천 | 마포 주식 투자자 모임">
+    <meta name="twitter:description" content="마포에서 만나는 강남 셔츠룸 투자 꿀팁! 생생한 후기와 가격대 정보">
+    <meta name="twitter:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect fill='%23fcf8f2' width='1200' height='630'/><text x='50%25' y='50%25' text-anchor='middle' font-family='system-ui' font-size='48' fill='%232e2522'>강남 셔츠룸</text></svg>">
+
+    <!-- JSON-LD 스키마 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "강남 셔츠룸 추천",
+        "description": "마포 주식 투자자들이 추천하는 강남 셔츠룸 정보",
+        "telephone": "010-6279-0862",
+        "areaServed": "마포, 강남",
+        "url": "https://sf-t3-1779642675702-438.vercel.app"
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--cream-bg);
-      color: var(--charcoal-fg);
-      font-family: var(--sans-font);
-      line-height: 1.8;
-      padding: 0 40px;
-    }
-    .wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 80px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 32px;
-      margin-bottom: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .brand {
-      font-family: var(--serif-font);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    nav { display: flex; gap: 32px; }
-    nav a {
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--gold-accent); }
-    main { padding-bottom: 80px; }
-    .kicker {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--gold-accent);
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-family: var(--serif-font);
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--charcoal-fg);
-      margin-bottom: 40px;
-    }
-    .story-body {
-      font-family: var(--serif-font);
-      font-size: 1.15rem;
-      color: var(--charcoal-fg);
-      font-weight: 400;
-      text-align: justify;
-      margin-bottom: 60px;
-    }
-    .story-body p { margin-bottom: 24px; text-indent: 12px; }
-    .juice-link {
-      color: var(--gold-accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold-accent);
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-    .juice-link:hover {
-      color: var(--charcoal-fg);
-      border-bottom-color: var(--charcoal-fg);
-    }
-    .editorials {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 60px;
-    }
-    .editorial-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gold-accent);
-      margin-bottom: 40px;
-    }
-    .editorial-flow {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .editorial-block {
-      text-decoration: none;
-      color: var(--charcoal-fg);
-      display: block;
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 30px;
-    }
-    .editorial-block:hover h3 { color: var(--gold-accent); }
-    .editorial-block h3 {
-      font-family: var(--serif-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      transition: color 0.3s ease;
-    }
-    .editorial-block p {
-      font-size: 0.95rem;
-      color: #555555;
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: #888888;
-    }
-    footer a { color: #888888; text-decoration: none; }
-    footer a:hover { color: var(--gold-accent); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; gap: 16px; }
-      h1 { font-size: 2rem; }
-      .story-body { font-size: 1.05rem; }
-    }
-  </style>
+    </script>
+
+    <style>
+        /* CSS Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Inter', sans-serif;
+            background-color: #fcf8f2;
+            color: #2e2522;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        h2 { font-size: 2rem; margin-bottom: 24px; }
+        h3 { font-size: 1.5rem; margin-bottom: 12px; }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        a {
+            color: #7f5539;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #7f5539;
+        }
+
+        /* Header & Navigation */
+        header {
+            border-bottom: 2px solid #2e2522;
+            background: #fcf8f2;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #2e2522;
+            border: none;
+        }
+
+        .logo:hover {
+            border-bottom: 2px solid #2e2522;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: #2e2522;
+            border: none;
+            padding-bottom: 4px;
+            transition: border-bottom 0.2s;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #7f5539;
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #2e2522;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: #fcf8f2;
+            border-bottom: 2px solid #2e2522;
+            padding: 24px 48px;
+            gap: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            border-bottom: 2px solid #2e2522;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .hero-visual {
+            width: 100%;
+            height: 300px;
+            background: #e8dfd3;
+            border: 2px solid #2e2522;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: #7f5539;
+            margin-bottom: 24px;
+        }
+
+        .cta-phone {
+            display: inline-block;
+            background: #2e2522;
+            color: #fcf8f2;
+            padding: 12px 28px;
+            border: 2px solid #2e2522;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: background 0.2s, color 0.2s;
+            border: none;
+        }
+
+        .cta-phone:hover {
+            background: #7f5539;
+            color: #fcf8f2;
+            border-color: #7f5539;
+        }
+
+        /* Section Dividers */
+        section {
+            padding: 48px 0;
+            border-bottom: 1px solid #d4c9bd;
+        }
+
+        section:last-of-type {
+            border-bottom: 2px solid #2e2522;
+        }
+
+        .section-gap {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .card {
+            border: 2px solid #2e2522;
+            padding: 24px;
+            background: #fcf8f2;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 0 #2e2522;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .card .meta {
+            font-size: 0.85rem;
+            color: #7f5539;
+            margin-bottom: 12px;
+        }
+
+        .card .stars {
+            color: #7f5539;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .info-item {
+            border: 1px solid #2e2522;
+            padding: 20px;
+        }
+
+        .info-item h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f5539;
+            border-top: 2px solid #2e2522;
+        }
+
+        footer a {
+            color: #2e2522;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 8px 0;
+            }
+
+            section {
+                padding: 32px 0;
+            }
+
+            .section-gap {
+                padding-top: 48px;
+                padding-bottom: 48px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+        }
+
+        /* Utility */
+        .text-center { text-align: center; }
+        .mt-16 { margin-top: 16px; }
+        .mb-8 { margin-bottom: 8px; }
+    </style>
 </head>
 <body>
-  <div class="wrapper">
     <header>
-      <a href="/" class="brand">EDITORIAL.T3</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="kicker">BOUTIQUE T3 / ACCENT HAIRLINES</div>
-      <h1>주식투자 리서치 및 기술 인프라 저널</h1>
-      <div class="story-body">
-        환영합니다. 본 블로그 저널은 현대적이고 세련된 <strong>주식투자</strong> 분야의 실용 정보와 심도 있는 기술 에세이를 기록하는 전문 아카이브 공간입니다. 아래의 엄선된 아티클 리스트를 통해 다양한 인사이트를 확인하시기 바랍니다.
-      </div>
-      
-      
-      <div class="editorials">
-        <div class="editorial-label">Recent Articles</div>
-        <div class="editorial-flow">
-          
-        <a href="posts/normal-1.html" class="editorial-block">
-          <h3>주식투자: 주식투자: 배당주 투자로 은퇴 연금 마련하기</h3>
-          <p>불확실성이 극대화되는 거시경제 파동 속에서 안정적이고 마르지 않는 고정 배당 수익을 가져다주는 우량 배당 귀족주 장기 투자는 직장인들에게 가장 든든한 금융 방패입니다. 배당 복리 ...</p>
-        </a>
-      
-
-        <a href="posts/normal-2.html" class="editorial-block">
-          <h3>주식투자: 주식투자: 코스트 에버리지 우량주 분할 매수</h3>
-          <p>시장 타이밍을 예측해 최저점에 주식을 매수하려는 헛된 시도보다는, 매월 일정한 시기에 정해진 금액만큼 대형 지수 추종 ETF나 우량 기업의 지분을 꾸준히 사 모으는 분할 매수 적립...</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="editorial-block">
-          <h3>주식투자: 주식투자: 자산 배분 전략과 위험 분산</h3>
-          <p>완벽한 위험 통제를 달성하는 자산 배분의 핵심은 주식뿐만 아니라 안전한 실물 자산 및 대체 자산에 적정한 밸런스 비중을 유지하는 것입니다. 이는 일시적 하락 파동에서도 내 멘탈과 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="editorial-block">
-          <h3>주식투자 전문가들이 엄선한 강남 셔츠룸 상세 비법 가이드</h3>
-          <p>성공적인 주식투자를 위해 우량 기업의 재무제표와 분기 배당 성향을 꼼꼼하게 연구하다 보면, 리스크의 철저한 분산을 보장하는 것은 오직 변동 없는 오프라인 실물 경제의 든든한 고정 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="editorial-block">
-          <h3>주식투자 전문가들이 엄선한 강남 셔츠룸 상세 비법 가이드</h3>
-          <p>성공적인 주식투자를 위해 우량 기업의 재무제표와 분기 배당 성향을 꼼꼼하게 연구하다 보면, 리스크의 철저한 분산을 보장하는 것은 오직 변동 없는 오프라인 실물 경제의 든든한 고정 ...</p>
-        </a>
-      
+        <div class="container header-inner">
+            <a href="/" class="logo">강남 셔츠룸</a>
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#reviews">후기</a></li>
+                    <li><a href="#info">정보</a></li>
+                    <li><a href="tel:010-6279-0862">문의</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>강남 셔츠룸,<br>마포에서 통하다</h1>
+                    <p class="subtitle">주식 투자자들이 진짜 추천하는 강남 셔츠룸 정보</p>
+                    <p>안녕하세요, 마포에서 주식 투자하는 사람들이 모여서 만든 페이지예요. 강남 셔츠룸, 다들 궁금하지만 정보 얻기 어렵잖아요? 여기서 생생한 후기랑 팁 다 풀어드립니다.</p>
+                    <a href="tel:010-6279-0862" class="cta-phone">📞 010-6279-0862 전화 문의</a>
+                </div>
+                <div class="hero-visual">
+                    <span>👔</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-gap">
+            <div class="container">
+                <h2>왜 강남 셔츠룸인가?</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>📍 마포에서 강남까지</h3>
+                        <p>마포에 살아도 강남 셔츠룸은 가까워요. 지하철 타면 30분이면 도착! 주식 투자로 스트레스 받을 때 딱 좋은 코스죠.</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>💰 투자자들만의 꿀팁</h3>
+                        <p>우리 모임에서 발굴한 가성비 좋은 셔츠룸 리스트. 주식 수익률보다 중요한 건 좋은 시간 보내는 거 아시죠?</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🔒 프라이빗한 분위기</h3>
+                        <p>강남 셔츠룸의 매력은 역시 프라이버시. 투자 얘기 나누기 좋은 공간, 직접 가보면 압니다.</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📈 주식 + 셔츠룸 = 환상의 조합</h3>
+                        <p>주식 얘기하다 보면 자연스럽게 셔츠룸 얘기로 빠지더라고요. 둘 다 마포 사람들한테는 핫한 주제!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section (UGC) -->
+        <section id="reviews" class="section-gap">
+            <div class="container">
+                <h2 class="text-center">생생한 후기</h2>
+                <p class="text-center" style="color:#7f5539; margin-bottom: 32px;">마포 주식 투자자들이 직접 경험한 강남 셔츠룸</p>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="stars">★★★★★</div>
+                        <h3>완전 만족!</h3>
+                        <div class="meta">투자하는형 · 2025.03.15</div>
+                        <p>친구랑 갔는데 분위기 미쳤어요. 주식 얘기하다가 다음 날 종목까지 추천받았네요 ㅋㅋ 강남 셔츠룸 중에서 여기 진짜 최고!</p>
+                    </div>
+                    <div class="card">
+                        <div class="stars">★★★★☆</div>
+                        <h3>가성비 좋아요</h3>
+                        <div class="meta">마포개미 · 2025.03.10</div>
+                        <p>주식으로 한 방 먹고 친구랑 위로 차 갔는데, 가격 대비 서비스가 좋더라고요. 다음에 또 갈 의향 있어요.</p>
+                    </div>
+                    <div class="card">
+                        <div class="stars">★★★★★</div>
+                        <h3>처음 가봤는데 대박</h3>
+                        <div class="meta">코인탈출러 · 2025.03.05</div>
+                        <p>강남 셔츠룸 처음인데 친구가 추천해줘서 갔어요. 직원분들도 친절하고, 시설도 깔끔. 주식 얘기 나누기 좋은 공간이에요.</p>
+                    </div>
+                    <div class="card">
+                        <div class="stars">★★★★☆</div>
+                        <h3>분위기 끝판왕</h3>
+                        <div class="meta">마포대장 · 2025.02.28</div>
+                        <p>여기 분위기가 진짜 예술이에요. 조명이랑 인테리어가 감성 터집니다. 주식 수익률보다 여기서 보낸 시간이 더 기억에 남아요.</p>
+                    </div>
+                    <div class="card">
+                        <div class="stars">★★★★★</div>
+                        <h3>재방문 의사 200%</h3>
+                        <div class="meta">주린이탈출 · 2025.02.20</div>
+                        <p>친구들과 강남 셔츠룸 투어 중에 가장 좋았어요. 청결하고 서비스도 좋고. 다음 달에도 또 예약할 생각이에요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section id="info" class="section-gap">
+            <div class="container">
+                <h2>알면 좋은 정보</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>📍 위치 & 접근성</h3>
+                        <p>강남 역세권, 마포에서 30분 컷! 주차도 가능하니 차 가져오셔도 돼요. 자세한 위치는 전화로 물어보세요.</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>💰 가격대</h3>
+                        <p>코스별로 다양하게 준비되어 있어요. 20만 원대부터 프리미엄 코스까지. 투자자들 지갑 사정에 맞춰 선택 가능!</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📞 예약 방법</h3>
+                        <p>전화 예약이 가장 빠릅니다. <a href="tel:010-6279-0862">010-6279-0862</a>로 바로 연락 주세요. 문자도 가능해요.</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🤝 특별 혜택</h3>
+                        <p>마포 주식 투자자 모임 회원님들께는 특별 할인 이벤트가 있어요. 전화할 때 "마포 투자자"라고 말씀해 주세요!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-      <div>&copy; 2026 EDITORIAL.T3. ALL RIGHTS RESERVED.</div>
+
+    
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
       <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">강남 셔츠룸 현장에서 놓치기 쉬운 포인트를 기록해봤다</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">### 제목: 창작한 제목 월 매출 3000원 찍은 진짜 원가 구조: 강남 셔츠룸에서의 폐업 비밀 #### 소제목1. **가격대별 원가 분석**2. **마진율과 실질 이익 비교**3. **폐업 비밀: 월매출 3000원 찍은 진짜 원인** #### 구체적 니치 콘텐츠 작</p>
       </div>
-    </footer>
+      <a href="posts/field_note-001-1iio21l.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>💡 GUIDE</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">주식투자 해결 방법 총정리 — 전문가가 알려주는 5가지 팁</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">제목: 창작한 제목: "싱글 프레임의 숨겨진 메시지: 타일러 더든이 등장하기 전 파이트 클럽 싱글 프레임 정리" 아, 진짜... 파이트 클럽 영화에서 타일러 더든이 등장하기 전 싱글 프레임으로 삽입된 장면들은 무엇을 말하는지에 대해 깊이 생각해볼 가치가 있습니다. 여기</p>
+      </div>
+      <a href="posts/guide-002-1iio21l.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
   </div>
+</section>
+<footer>
+        <div class="container">
+            <p>© 2025 강남 셔츠룸 추천 · 마포 주식 투자자 모임</p>
+            <p style="margin-top: 8px;">문의: <a href="tel:010-6279-0862">010-6279-0862</a></p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">본 사이트는 정보 제공 목적으로 운영됩니다.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
